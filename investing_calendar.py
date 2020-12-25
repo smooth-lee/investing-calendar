@@ -14,7 +14,8 @@ class InvestingCalendar:
     def __init__(self):
         self.uri = uri
         self.header = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)'
+                          'Chrome/41.0.2227.0 Safari/537.36'
         }
         self.req = requests.get(self.uri, headers=self.header)
         self.news = []
