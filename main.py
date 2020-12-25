@@ -1,16 +1,30 @@
-# 샘플 Python 스크립트입니다.
+import requests
+from bs4 import BeautifulSoup
 
-# Shift+F10 을(를) 눌러 실행하거나 내 코드로 대체합니다.
-# Shift 두 번 을(를) 눌러 클래스, 파일, 도구 창, 액션 및 설정에서 전체 검색합니다.
+uri = 'https://sslecal2.forexprostools.com/?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&countries=110,43,17,42,5,178,32,12,26,36,4,72,10,14,48,35,37,6,122,41,22,11,25,39&calType=day&timeZone=88&lang=18'
 
 
-def print_hi(name):
-    # 스크립트를 디버그하려면 하단 코드 줄의 중단점을 사용합니다.
-    print(f'Hi, {name}')  # 중단점을 전환하려면 Ctrl+F8 을(를) 누릅니다.
+class InvestingCalendar:
+    def __init__(self):
+        self.uri = uri
+        self.header = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.0 Safari/537.36'
+        }
+        self.req = requests.get(self.uri, headers=self.header)
+        self.news = []
+
+    def get_news(self):
+
+        html = self.req.text
+
+        soup = BeautifulSoup(html, 'html.parser')
+
+        print(soup)
 
 
 # 스크립트를 실행하려면 여백의 녹색 버튼을 누릅니다.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    news = InvestingCalendar()
+    news.get_calendar_info()
 
 # https://www.jetbrains.com/help/pycharm/에서 PyCharm 도움말 확인
