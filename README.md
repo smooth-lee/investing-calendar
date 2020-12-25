@@ -1,4 +1,4 @@
-# Getting Start
+# Investing Calendar
 
 Get economic calendar information from the investing.com
 
