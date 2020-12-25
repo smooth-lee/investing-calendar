@@ -29,7 +29,7 @@ class InvestingCalendar:
         rows = tbody.findAll('tr')
 
         for tr in rows:
-            news_info = {'timestamp': None,
+            news_info = {'time': None,
                          'country': None,
                          'impact': None,
                          'event_title': None,
@@ -43,7 +43,7 @@ class InvestingCalendar:
             if not time:
                 continue
 
-            news_info['timestamp'] = time.get_text()
+            news_info['time'] = time.get_text()
 
             cols = tr.find('td', {"class": "flagCur"})
             flag = cols.find('span', {'class': 'ceFlags'})
